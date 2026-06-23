@@ -11,7 +11,7 @@ def total_expense():
     with open(FILE_NAME, "r") as file:
         reader = csv.reader(file)
 
-        next(reader)      # Header Skip
+        next(reader)     
 
         for row in reader:
             total += float(row[3])
