@@ -11,14 +11,11 @@ def generate_expense_id():
         reader = csv.reader(file)
         rows = list(reader)
 
-        # Sirf header hai
         if len(rows) == 1:
             return 1
-
-        # Last expense ki ID
+            
         last_id = int(rows[-1][0])
 
-        # Next ID
         return last_id + 1
 
     
@@ -65,7 +62,7 @@ def view_expenses():
         print(f"{'ID':<5}{'Date':<15}{'Category':<15}{'Amount':<12}{'Description'}")
         print("-" * 75)
 
-        for row in rows[1:]:      # Header ko skip karega
+        for row in rows[1:]:     
             print(f"{row[0]:<5}{row[1]:<15}{row[2]:<15}{row[3]:<12}{row[4]}")
 
         print("-" * 75)
@@ -85,7 +82,7 @@ def search_expense():
         print(f"{'ID':<5}{'Date':<15}{'Category':<15}{'Amount':<12}{'Description'}")
         print("-" * 75)
 
-        next(reader)   # Header Skip
+        next(reader)  
 
         for row in reader:
             if row[2].strip().lower() == category.strip().lower():
@@ -162,7 +159,7 @@ def delete_expense():
 
             if row[0] == expense_id:
                 found = True
-                continue      # Is row ko skip kar dega
+                continue    
 
             rows.append(row)
 
